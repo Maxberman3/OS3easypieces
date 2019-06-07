@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 int main(int argc, char const *argv[]) {
-  int fd = open("fork3_output.txt", O_WRONLY | O_CREAT);
+  int fd = open("fork4_output.txt", O_WRONLY | O_CREAT);
   int retval=fork();
   int sz1;
   int sz2;
@@ -20,6 +20,7 @@ int main(int argc, char const *argv[]) {
     }
   }
   else {
+    wait(NULL);
     for(int i=0;i<5;i++){
       sz2=write(fd,"parent writing\n",strlen("parent writing\n"));
     }
